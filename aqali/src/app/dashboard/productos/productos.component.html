@@ -1,0 +1,31 @@
+<!-- productos.component.html -->
+<div class="container mx-auto p-4">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">Lista de Productos en el Almacén</h1>
+    <a [routerLink]="['/dashboard/agregar-producto']" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Agregar</a>
+  </div>
+
+  <table class="min-w-full bg-white">
+    <thead>
+      <tr>
+        <th class="py-2 px-4 border">Nombre</th>
+        <th class="py-2 px-4 border">Cantidad</th>
+        <th class="py-2 px-4 border">Fecha de Ingreso</th>
+        <th class="py-2 px-4 border">Fecha de Vencimiento</th>
+        <th class="py-2 px-4 border">Código</th>
+        <th class="py-2 px-4 border">Proveedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td class="border px-4 py-2">{{ producto.nombre }}</td>
+        <td class="border px-4 py-2">{{ producto.cantidad }}</td>
+        <td class="border px-4 py-2">{{ producto.fechaIngreso }}</td>
+        <td class="border px-4 py-2">{{ producto.fechaVencimiento }}</td>
+        <td class="border px-4 py-2">{{ producto.codigo }}</td>
+        <td class="border px-4 py-2">{{ producto.proveedor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

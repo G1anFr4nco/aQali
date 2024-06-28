@@ -1,0 +1,34 @@
+<!-- agregar-producto.component.html -->
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Agregar Nuevo Producto</h1>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" [(ngModel)]="producto.nombre" name="nombre" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="cantidad">Cantidad</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cantidad" type="number" [(ngModel)]="producto.cantidad" name="cantidad" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="fechaIngreso">Fecha de Ingreso</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fechaIngreso" type="date" [(ngModel)]="producto.fechaIngreso" name="fechaIngreso" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="fechaVencimiento">Fecha de Vencimiento</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fechaVencimiento" type="date" [(ngModel)]="producto.fechaVencimiento" name="fechaVencimiento" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="codigo">Código</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="codigo" type="text" [(ngModel)]="producto.codigo" name="codigo" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="proveedor">Proveedor</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="proveedor" type="text" [(ngModel)]="producto.proveedor" name="proveedor" required>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Agregar</button>
+    </div>
+  </form>
+</div>

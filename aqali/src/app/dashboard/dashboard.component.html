@@ -1,0 +1,70 @@
+<div class="flex">
+  <div class="w-64 bg-gray-800 text-white h-screen">
+    <div class="p-4">
+      <h1 class="text-2xl font-bold">aQali</h1>
+    </div>
+    <nav class="mt-10">
+      <div class="group">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard" routerLinkActive="bg-gray-700">
+          INICIO
+        </a>
+        <div class="hidden group-hover:block ml-4">
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/resumen" routerLinkActive="bg-gray-700">
+            Resumen
+          </a>
+        </div>
+      </div>
+      <div class="group mt-4">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          ACCIONES
+        </a>
+        <div class="hidden group-hover:block ml-4">
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/productos" routerLinkActive="bg-gray-700">
+            Productos
+          </a>
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/ingresos" routerLinkActive="bg-gray-700">
+            Ingresos
+          </a>
+        </div>
+      </div>
+      <div class="group mt-4">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          SEDE
+        </a>
+        <div class="hidden group-hover:block ml-4">
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/colegio" routerLinkActive="bg-gray-700">
+            Colegio
+          </a>
+        </div>
+      </div>
+      <div class="group mt-4">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          REGISTROS
+        </a>
+        <div class="hidden group-hover:block ml-4">
+          
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/generar-registros" routerLinkActive="bg-gray-700">
+            Generar registros
+          </a>
+        </div>
+      </div>
+      <div class="group mt-4">
+        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          AJUSTES
+        </a>
+        <div class="hidden group-hover:block ml-4">
+          <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" routerLink="/dashboard/perfil" routerLinkActive="bg-gray-700">
+            Perfil
+          </a>
+        </div>
+      </div>
+      <!-- Botón de Logout -->
+      <button (click)="logout()" class="block w-full text-left py-2.5 px-4 rounded transition duration-200 hover:bg-red-500 mt-4">
+        Logout
+      </button>
+    </nav>
+  </div>
+  <div class="flex-1 p-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

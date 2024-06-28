@@ -1,0 +1,41 @@
+<div class="container mx-auto px-4 mt-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <!-- Sección de imagen grande del colegio -->
+      <img [src]="colegio.imagen" class="w-full h-64 object-cover object-center" alt="Imagen del colegio">
+  
+      <!-- Sección de información del colegio -->
+      <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-2">{{ colegio.nombre }}</h2>
+      </div>
+    </div>
+  
+    <!-- Sección del mapa en una carta aparte -->
+    <div class="max-w-4xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Carta de información del colegio -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-xl font-semibold mb-2">Información del colegio</h2>
+          <p class="text-gray-600 mb-4">{{ colegio.nombre }}</p>
+          <p class="text-gray-600 mb-4">{{ colegio.direccion }}</p>
+          <p class="text-gray-600 mb-4">Código único: {{ colegio.codigoUnico }}</p>
+  
+          <h3 class="text-lg font-semibold mb-2">Docentes a cargo:</h3>
+          <ul>
+            <li *ngFor="let docente of docentes" class="flex items-center mb-2">
+              <img [src]="docente.imagen" class="rounded-full mr-2" width="30" height="30" alt="Imagen de docente">
+              <span>{{ docente.nombre }} - {{ docente.seccion }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Carta del mapa -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-xl font-semibold mb-2">Ubicación del colegio</h2>
+          <div id="mapa" class="w-full h-64"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

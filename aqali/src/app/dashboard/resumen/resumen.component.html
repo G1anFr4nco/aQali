@@ -1,0 +1,84 @@
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Resumen</h1>
+
+  <!-- Carta de Horas Restantes -->
+  <div class="bg-white p-4 rounded-lg shadow mb-4">
+    <h2 class="text-4xl font-semibold mb-4">Horas Restantes para Repartido de Alimentos</h2>
+    <div class="text-6xl font-bold mb-4">{{ tiempoRestante }}</div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <!-- Cartas de Productos -->
+    <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+      <h2 class="text-xl font-semibold mb-4">Productos Ingresados del Día</h2>
+      <canvas id="chartProductosIngresados" class="w-full"></canvas>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    <!-- Productos Ingresados del Día -->
+    <a [routerLink]="['/dashboard/ingresos']" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+      <h2 class="text-xl font-semibold mb-4">Productos Ingresados del Día</h2>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">Producto</th>
+            <th class="py-2">Cantidad</th>
+            <th class="py-2">Fecha</th>
+            <th class="py-2">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosIngresados">
+            <td class="border px-4 py-2">{{ producto.nombre }}</td>
+            <td class="border px-4 py-2">{{ producto.cantidad }}</td>
+            <td class="border px-4 py-2">{{ producto.fecha }}</td>
+            <td class="border px-4 py-2">{{ producto.hora }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </a>
+
+    <!-- Productos Salidos del Día -->
+    <a [routerLink]="['/dashboard/salidas']" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+      <h2 class="text-xl font-semibold mb-4">Productos Salidos del Día</h2>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">Producto</th>
+            <th class="py-2">Cantidad</th>
+            <th class="py-2">Fecha</th>
+            <th class="py-2">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosSalidos">
+            <td class="border px-4 py-2">{{ producto.nombre }}</td>
+            <td class="border px-4 py-2">{{ producto.cantidad }}</td>
+            <td class="border px-4 py-2">{{ producto.fecha }}</td>
+            <td class="border px-4 py-2">{{ producto.hora }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </a>
+
+    <!-- Datos del Colegio -->
+    <a [routerLink]="['/dashboard/colegio']" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+      <h2 class="text-xl font-semibold mb-4">Datos del Colegio</h2>
+      <div>
+        <img [src]="colegio.imagen" alt="Imagen del Colegio" class="w-full h-48 object-cover rounded-lg mb-4">
+        <p><strong>Nombre:</strong> {{ colegio.nombre }}</p>
+        <p><strong>Dirección:</strong> {{ colegio.direccion }}</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+    <!-- Docentes a cargo de repartir alimentos -->
+    <div *ngFor="let docente of docentes" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 cursor-pointer" (click)="navigateTo('/dashboard/docentes')">
+      <img [src]="docente.imagen" alt="Imagen del docente" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h2 class="text-xl font-semibold">{{ docente.nombre }}</h2>
+      <p class="text-gray-600">Sección: {{ docente.seccion }}</p>
+    </div>
+  </div>
+</div>
