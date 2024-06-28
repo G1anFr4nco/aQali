@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http'); // Importar http para Socket.IO
 const socketIo = require('socket.io'); // Importar Socket.IO
+const path = require('path'); // Importar path para servir archivos estáticos
 
 const app = express();
 const server = http.createServer(app); // Crear servidor HTTP
@@ -60,6 +61,14 @@ app.post('/api/productos', async (req, res) => {
     console.error('Error al agregar producto', err);
     res.status(400).json({ error: 'Error al agregar producto' });
   }
+});
+
+// Servir los archivos estáticos de la aplicación Angular
+app.use(express.static(path.join(__dirname, '../frontend/dist/aqali')));
+
+// Manejar todas las rutas Angular
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/aqali/index.html'));
 });
 
 // Iniciar servidor
